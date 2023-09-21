@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace ДЗ_3._Console_program_with_objects.Classes
+namespace Console_program_with_objects.Classes
 {
     public class UserInputDataProvider
     {
@@ -69,7 +69,6 @@ namespace ДЗ_3._Console_program_with_objects.Classes
             else
             {
                 Console.Write("Error, pleace try again: ");
-                gender = Convert.ToInt32(Console.ReadLine());
                 ChoiseGender();
             }
             Gender genderUser = (Gender)gender;

@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ДЗ_3._Console_program_with_objects.Classes
+namespace Console_program_with_objects.Classes
 {
     public class User
     {

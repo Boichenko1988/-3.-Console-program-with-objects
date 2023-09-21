@@ -1,10 +1,10 @@
-﻿using ДЗ_3._Console_program_with_objects;
+﻿using Console_program_with_objects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ДЗ_3._Console_program_with_objects.Classes;
+using Console_program_with_objects.Classes;
 
 namespace ConsoleApp2
 {
