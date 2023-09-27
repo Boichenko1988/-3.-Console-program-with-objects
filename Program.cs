@@ -16,8 +16,8 @@ namespace ConsoleApp2
             UserInputDataProvider userInputDataProvider = new UserInputDataProvider();
             User newUser = new User(userInputDataProvider.GetUserAge());
 
-            newUser.FirstName = userInputDataProvider.GetUserName();
-            newUser.LastName = userInputDataProvider.GetLastName();
+            newUser.FirstName = userInputDataProvider.GetName();
+            newUser.LastName = userInputDataProvider.GetName();
             newUser.ChoiseGend = userInputDataProvider.ChoiseGender();
 
 

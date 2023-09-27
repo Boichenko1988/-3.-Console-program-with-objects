@@ -10,12 +10,11 @@ namespace Console_program_with_objects.Classes
 {
     public class UserInputDataProvider
     {
-         
 
 
-        public string GetUserName()
+
+        public string GetName()
         {
-
             Console.Write("Enter your Name: ");
             string firstName = Console.ReadLine();
 
@@ -25,55 +24,56 @@ namespace Console_program_with_objects.Classes
             }
             else
             {
-                Console.WriteLine("Error! Please enter only symbols(A-Z): ");
-                GetUserName();
+                int attempts = 0;
+                while (attempts < 2)
+                {
+                    Console.WriteLine("Error! Please enter only symbols (A-Z): ");
+                    firstName = Console.ReadLine();
+                    if (IsCorrectNameSurname(firstName))
+                    {
+                        return firstName;
+                    }
+                    attempts++;
+                }
+                Console.WriteLine("Exceeded maximum attempts. Setting default value.");
+                return "Default";
             }
-            return firstName;
         }
-        public string GetLastName()
-        {
-            Console.Write("Enter your LastName: ");
-            string lastName = Console.ReadLine();
 
-            if (IsCorrectNameSurname(lastName))
-            {
-                return lastName;
-            }
-            else
-            {
-                Console.WriteLine("Error! Please enter only symbols(A-Z): ");
-                GetLastName();
-            }
-            return lastName;
+      
 
-        }
+
         private static bool IsCorrectNameSurname(string inputStr)
         {
-            var pattern = new Regex("[A-Za-z]+$");
+            var pattern = new Regex("^[A-Za-z]{2,}$");
             return pattern.IsMatch(inputStr);
 
         }
         public Gender ChoiseGender()
         {
             Console.WriteLine("Choose your gender, press 1 if you male or 2 if you female: ");
-            int gender = Convert.ToInt32(Console.ReadLine());
+          
 
-            if (gender == 1)
+            bool isCorrectMode = Enum.TryParse(Console.ReadLine(), out Gender gender);
+
+            if (!isCorrectMode || !Enum.IsDefined(typeof(Gender), gender))
             {
-                return Gender.Male;
-            }
-            else if (gender == 2)
-            {
-                return Gender.Female;
+                Console.Write("Error, pleace try again: ");
+                gender=ChoiseGender();
             }
             else
             {
-                Console.Write("Error, pleace try again: ");
-                ChoiseGender();
+                if (gender == Gender.Male)
+                {
+                    return Gender.Male;
+                }
+                else if (gender == Gender.Female)
+                {
+                    return Gender.Female;
+                }
             }
-            Gender genderUser = (Gender)gender;
-
-            return genderUser;
+         
+            return gender;
 
         }
 
